@@ -17,7 +17,7 @@ module.exports = {
   },
   viteFinal: (config , { configType }) => {
     if (configType === "PRODUCTION") {
-      config.base = '/ArquivosEstudos'}
+      config.base = '/Design-System-React'}
     return config
   }
 }
