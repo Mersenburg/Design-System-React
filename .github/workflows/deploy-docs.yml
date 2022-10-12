@@ -1,12 +1,13 @@
-name: deploy storybook
+name: Deploy Storybook
 
 on:
   push:
     branches:
-      -master
+      - main
+
 jobs:
-  build and deploy:
-    runs-on:  ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -22,8 +23,8 @@ jobs:
 
       - name: Build Storybook
         run: npm run build-storybook
-      
+
       - name: Deploy Storybook
-       run: npm run deploy-storybook -- --ci --exising-output-dir=storybook-static
-       env: 
-        GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
